@@ -10,6 +10,7 @@ export default function Nurayn() {
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -192,10 +193,18 @@ export default function Nurayn() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(10,132,255,0.10),_transparent_35%),radial-gradient(circle_at_80%_20%,_rgba(14,165,233,0.12),_transparent_28%),linear-gradient(to_bottom,_#ffffff,_#f5f8fc)]" />
         <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-8 lg:px-10">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-8 lg:px-10">
           <header className="flex items-center justify-between rounded-md border border-white/70 bg-white/85 px-5 py-3 shadow-[0_10px_35px_rgba(15,23,42,0.06)] backdrop-blur-xl">
+            {showMobileMenu && (
+              <div className="mt-3 flex flex-col gap-4 rounded-md bg-white p-4 shadow md:hidden">
+                <a href="#features">Features</a>
+                <a href="#platform">Platform</a>
+                <a href="#why">Why NURAYN</a>
+                <a href="#contact">Contact</a>
+              </div>
+            )}
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-white shadow-lg shadow-cyan-500/10 overflow-hidden">
+              <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-white shadow-lg shadow-cyan-500/10 overflow-hidden">
                 <img
                   src={logo}
                   alt="NURAYN logo"
@@ -203,13 +212,21 @@ export default function Nurayn() {
                 />
               </div>
               <div>
-                <div className="text-md font-semibold tracking-[0.16em] text-slate-900">
+                <div className="text-xl font-semibold tracking-[0.10em] text-slate-900">
                   NURAYN
                 </div>
               </div>
             </div>
 
             <nav className="hidden items-center gap-8 text-sm text-slate-600 md:flex">
+              <div className="md:hidden">
+                <button
+                  onClick={() => setShowMobileMenu((prev) => !prev)}
+                  className="text-xl"
+                >
+                  ☰
+                </button>
+              </div>
               <a href="#features" className="transition hover:text-slate-900">
                 Features
               </a>
@@ -236,9 +253,9 @@ export default function Nurayn() {
             </button>
           </header>
 
-          <div className="grid items-start gap-16 py-12 lg:grid-cols-[1.02fr_0.98fr] lg:py-16">
+          <div className="grid items-start gap-16 py-12 grid-cols-1 lg:grid-cols-2 lg:py-16">
             <div>
-              <h1 className="max-w-3xl text-5xl font-semibold leading-[1.05] tracking-tight text-slate-950 md:text-6xl xl:text-7xl">
+              <h1 className="max-w-3xl break-words text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-semibold leading-[1.05] tracking-tight text-slate-950">
                 HR, Payroll & WPS platform
                 <span className="block bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-700 bg-clip-text text-transparent">
                   seamlessly integrated with finance &amp; operations.
@@ -251,18 +268,18 @@ export default function Nurayn() {
                 posting, and ensuring full traceability across the business.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => {
                     setShowModal(true);
                     setSuccess(false); // reset
                     setError("");
                   }}
-                  className="rounded-md bg-slate-950 px-6 py-3 font-semibold text-white shadow-[0_12px_30px_rgba(15,23,42,0.12)] transition hover:scale-[1.02]"
+                  className="rounded-md bg-slate-950 px-4 sm:px-6 lg:px-10 py-3 font-semibold text-white shadow-[0_12px_30px_rgba(15,23,42,0.12)] transition hover:scale-[1.02]"
                 >
                   Book a Demo
                 </button>
-                <button className="rounded-md border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-900 transition hover:bg-slate-50">
+                <button className="rounded-md border border-slate-200 bg-white px-4 sm:px-6 lg:px-10 py-3 font-semibold text-slate-900 transition hover:bg-slate-50">
                   Explore Platform
                 </button>
               </div>
@@ -315,170 +332,136 @@ export default function Nurayn() {
                     </div>
                   </div>
 
-                  <div className="grid gap-4">
-                    <div className="flex gap-4">
-                      <div className="flex-1 rounded-xl border border-cyan-200 bg-cyan-50 p-5 shadow-sm">
-                        <div className="text-sm text-slate-500">
-                          Total Salaries
-                        </div>
-                        <div className="mt-3 text-3xl font-semibold text-slate-950">
-                          AED 2,004,560
-                        </div>
-                        <div className="mt-2 text-xs text-slate-500">
-                          Processed this month
-                        </div>
-                      </div>
-                      <div className="flex-1 rounded-xl bg-slate-950 p-6 text-white shadow-lg">
-                        <div className="text-sm text-slate-400">
-                          Total Employees
-                        </div>
-                        <div className="mt-3 text-5xl font-semibold tracking-tight">
-                          1,248
-                        </div>
-                        <div className="mt-6 flex items-center justify-between gap-4">
-                          <div>
-                            <div className="text-xs uppercase tracking-[0.18em] text-slate-500">
-                              Growth
-                            </div>
-                            <div className="mt-1 text-sm text-emerald-300">
-                              +8.4% this quarter
-                            </div>
-                          </div>
-                          <div className="rounded-lg bg-white/10 px-4 py-3 text-sm text-slate-200">
-                            4 active branches
-                          </div>
-                        </div>
-                      </div>
+   <div className="grid gap-4">
+  {/* TOP CARDS */}
+  <div className="grid grid-cols-1 gap-4 min-[540px]:grid-cols-3">
+    {/* Total Salaries */}
+    <div className="min-w-0 rounded-xl border border-cyan-200 bg-cyan-50 p-4 shadow-sm">
+      <div className="text-xs sm:text-sm text-slate-500">
+        Total Salaries
+      </div>
 
-                      <div className="flex-1 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-                        <div className="text-sm text-slate-500">
-                          Payroll Status
-                        </div>
-                        <div className="mt-3 text-2xl font-semibold text-slate-950">
-                          Ready for Processing
-                        </div>
-                        <div className="mt-6 h-2 rounded-md bg-slate-200">
-                          <div className="h-2 w-[82%] rounded-md bg-gradient-to-r from-cyan-500 to-blue-600" />
-                        </div>
-                        <div className="mt-3 flex items-center justify-between text-sm">
-                          <span className="text-slate-500">
-                            Validation progress
-                          </span>
-                          <span className="font-medium text-slate-900">
-                            82%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+      <div className="mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-slate-950 leading-tight">
+        AED 2,004,560
+      </div>
 
-                    <div className="grid gap-4 md:grid-cols-[0.92fr_1.08fr]">
-                      <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <div className="text-sm text-slate-500">
-                              Approvals
-                            </div>
-                            <div className="text-xl font-semibold text-slate-950">
-                              Pending Actions
-                            </div>
-                          </div>
-                          <div className="rounded-lg bg-amber-50 px-3 py-2 text-sm font-medium text-amber-700 whitespace-nowrap">
-                            24 open
-                          </div>
-                        </div>
+      <div className="mt-2 text-[11px] sm:text-xs text-slate-500">
+        Processed this month
+      </div>
+    </div>
 
-                        <div className="mt-5 space-y-3">
-                          <div className="rounded-lg bg-slate-50 p-4">
-                            <div className="flex items-center justify-between text-sm">
-                              <span className="text-slate-500">
-                                Leave requests
-                              </span>
-                              <span className="font-semibold text-slate-900">
-                                09
-                              </span>
-                            </div>
-                          </div>
-                          <div className="rounded-lg bg-slate-50 p-4">
-                            <div className="flex items-center justify-between text-sm">
-                              <span className="text-slate-500">
-                                Payroll exceptions
-                              </span>
-                              <span className="font-semibold text-slate-900">
-                                06
-                              </span>
-                            </div>
-                          </div>
-                          <div className="rounded-lg bg-slate-50 p-4">
-                            <div className="flex items-center justify-between text-sm">
-                              <span className="text-slate-500">
-                                HR approvals
-                              </span>
-                              <span className="font-semibold text-slate-900">
-                                09
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+    {/* Total Employees */}
+    <div className="min-w-0 rounded-xl bg-slate-950 p-4 text-white shadow-lg xl:p-6">
+      <div className="text-xs sm:text-sm text-slate-400">
+        Total Employees
+      </div>
 
-                      <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <div className="text-sm text-slate-500">
-                              Attendance Snapshot
-                            </div>
-                            <div className="text-xl font-semibold text-slate-950">
-                              Today’s Workforce Activity
-                            </div>
-                          </div>
-                        </div>
+      <div className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+        1,248
+      </div>
 
-                        <div className="mt-6 grid grid-cols-3 gap-3">
-                          <div className="rounded-lg bg-slate-50 p-4">
-                            <div className="text-sm text-slate-500">
-                              Present
-                            </div>
-                            <div className="mt-2 text-2xl font-semibold text-slate-950">
-                              1,132
-                            </div>
-                          </div>
-                          <div className="rounded-lg bg-slate-50 p-4">
-                            <div className="text-sm text-slate-500">
-                              On Leave
-                            </div>
-                            <div className="mt-2 text-2xl font-semibold text-slate-950">
-                              57
-                            </div>
-                          </div>
-                          <div className="rounded-lg bg-slate-50 p-4">
-                            <div className="text-sm text-slate-500">Late</div>
-                            <div className="mt-2 text-2xl font-semibold text-slate-950">
-                              19
-                            </div>
-                          </div>
-                        </div>
+      <div className="mt-4 flex flex-col gap-2 xl:mt-6 xl:flex-row xl:items-center xl:justify-between">
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.18em] text-slate-500">
+            Growth
+          </div>
+          <div className="mt-1 text-xs sm:text-sm text-emerald-300">
+            +8.4% this quarter
+          </div>
+        </div>
 
-                        <div className="mt-6 rounded-xl bg-[linear-gradient(135deg,#ecfeff_0%,#eff6ff_100%)] p-5">
-                          <div className="flex items-end justify-between gap-3">
-                            {[38, 58, 48, 73, 67, 84, 76].map((h, i) => (
-                              <div
-                                key={i}
-                                className="flex flex-1 flex-col items-center gap-2"
-                              >
-                                <div
-                                  className="w-full max-w-[32px] rounded-md bg-gradient-to-t from-cyan-500 to-blue-600"
-                                  style={{ height: `${h}px` }}
-                                />
-                                <span className="text-xs text-slate-500">
-                                  {["M", "T", "W", "T", "F", "S", "S"][i]}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+      {/* <div className="max-w-full rounded-md bg-white/10 px-2 py-2 text-[10px] sm:text-xs xl:text-sm text-slate-200 text-center leading-tight">
+  <span className="block">4 active</span>
+  <span className="block">branches</span>
+</div> */}
+      </div>
+    </div>
+
+    {/* Payroll */}
+    <div className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm xl:p-5">
+      <div className="text-xs sm:text-sm text-slate-500">
+        Payroll Status
+      </div>
+
+      <div className="mt-2 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-slate-950 leading-tight">
+        Ready for Processing
+      </div>
+
+      <div className="mt-4 h-2 rounded-md bg-slate-200 xl:mt-6">
+        <div className="h-2 w-[82%] rounded-md bg-gradient-to-r from-cyan-500 to-blue-600" />
+      </div>
+
+      <div className="mt-3 flex justify-between text-xs sm:text-sm">
+        <span className="text-slate-500">Validation</span>
+        <span className="font-medium text-slate-900">82%</span>
+      </div>
+    </div>
+  </div>
+
+  {/* BOTTOM */}
+  <div className="grid gap-4 md:grid-cols-2">
+    {/* Approvals */}
+    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div>
+          <div className="text-sm text-slate-500">Approvals</div>
+          <div className="text-lg sm:text-xl font-semibold text-slate-950">
+            Pending Actions
+          </div>
+        </div>
+
+        <div className="rounded-lg bg-amber-50 px-3 py-2 text-xs sm:text-sm font-medium text-amber-700">
+          24 open
+        </div>
+      </div>
+
+      <div className="mt-5 space-y-3">
+        {[
+          { label: "Leave requests", value: "09" },
+          { label: "Payroll exceptions", value: "06" },
+          { label: "HR approvals", value: "09" },
+        ].map((item) => (
+          <div key={item.label} className="rounded-lg bg-slate-50 p-4">
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-slate-500">{item.label}</span>
+              <span className="font-semibold text-slate-900">
+                {item.value}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Attendance */}
+    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div>
+        <div className="text-sm text-slate-500">Attendance Snapshot</div>
+        <div className="text-lg sm:text-xl font-semibold text-slate-950">
+          Today’s Workforce Activity
+        </div>
+      </div>
+
+      <div className="mt-6 grid grid-cols-3 gap-3">
+        {[
+          { label: "Present", value: "1,131" },
+          { label: "On Leave", value: "57" },
+          { label: "Late", value: "19" },
+        ].map((item) => (
+          <div key={item.label} className="rounded-lg bg-slate-50 p-3 text-center">
+            <div className="text-[11px] sm:text-sm text-slate-500">
+              {item.label}
+            </div>
+
+            <div className="mt-2 text-lg sm:text-xl md:text-2xl font-semibold text-slate-950 leading-tight">
+              {item.value}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
                 </div>
               </div>
             </div>
@@ -486,7 +469,7 @@ export default function Nurayn() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-20 lg:px-10">
         <div className="mb-6 text-sm font-semibold uppercase tracking-[0.24em] text-cyan-700">
           ERP Integrations
         </div>
@@ -544,7 +527,10 @@ export default function Nurayn() {
         </div>
       </section>
 
-      <section id="features" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <section
+        id="features"
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-20 lg:px-10"
+      >
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <div className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-700">
@@ -586,7 +572,7 @@ export default function Nurayn() {
       </section>
 
       <section id="platform" className="border-y border-slate-200 bg-white/70">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:px-10 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:px-10">
           <div>
             <div className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-700">
               Core Strength
@@ -712,7 +698,10 @@ export default function Nurayn() {
         </div>
       </section>
 
-      <section id="why" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <section
+        id="why"
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-20 lg:px-10"
+      >
         <div className="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 text-slate-900 shadow-[0_20px_60px_rgba(15,23,42,0.06)] md:p-12">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
@@ -743,7 +732,10 @@ export default function Nurayn() {
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl px-6 pb-20 lg:px-10">
+      <section
+        id="contact"
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 pb-20 lg:px-10"
+      >
         <div className="rounded-2xl border border-cyan-200 bg-[linear-gradient(135deg,#ecfeff_0%,#eff6ff_50%,#ffffff_100%)] p-8 shadow-[0_20px_60px_rgba(15,23,42,0.06)] md:p-12">
           <div className="max-w-3xl">
             <div className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-700">
@@ -763,7 +755,7 @@ export default function Nurayn() {
                   setSuccess(false); // reset
                   setError("");
                 }}
-                className="rounded-md bg-slate-950 px-6 py-3 font-semibold text-white"
+                className="rounded-md bg-slate-950 px-4 sm:px-6 lg:px-10 py-3 font-semibold text-white"
               >
                 Schedule a Demo
               </button>
@@ -773,7 +765,7 @@ export default function Nurayn() {
                   setSuccess(false); // reset
                   setError("");
                 }}
-                className="rounded-md border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-900"
+                className="rounded-md border border-slate-200 bg-white px-4 sm:px-6 lg:px-10 py-3 font-semibold text-slate-900"
               >
                 Contact Sales
               </button>
@@ -788,8 +780,7 @@ export default function Nurayn() {
             if (e.target === e.currentTarget) setShowModal(false);
           }}
         >
-          {" "}
-          <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
+          <div className="w-full max-w-md mx-4 rounded-xl bg-white p-6 shadow-xl">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold">Request a Demo</h2>
               <button onClick={() => setShowModal(false)}>✕</button>
