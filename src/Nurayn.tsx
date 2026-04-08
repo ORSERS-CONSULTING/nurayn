@@ -268,7 +268,7 @@ export default function Nurayn() {
                 posting, and ensuring full traceability across the business.
               </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              {/* <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => {
                     setShowModal(true);
@@ -282,7 +282,7 @@ export default function Nurayn() {
                 <button className="rounded-md border border-slate-200 bg-white px-4 sm:px-6 lg:px-10 py-3 font-semibold text-slate-900 transition hover:bg-slate-50">
                   Explore Platform
                 </button>
-              </div>
+              </div> */}
 
               <div className="mt-6 flex flex-wrap gap-3">
                 {valuePoints.map((item) => (
