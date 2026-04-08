@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
+
 export default function Nurayn() {
   const [success, setSuccess] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
+const [captchaValue, setCaptchaValue] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     company: "",
     message: "",
+    website:""
   });
   const validate = () => {
     if (!formData.name || !formData.email) {
@@ -21,7 +25,7 @@ export default function Nurayn() {
     if (!emailRegex.test(formData.email)) {
       return "Invalid email";
     }
-   
+
     const phoneRegex = /^\+?[0-9\s\-()]{7,}$/;
     if (formData.phone && !phoneRegex.test(formData.phone)) {
       return "Invalid phone number";
@@ -42,10 +46,17 @@ export default function Nurayn() {
       [e.target.name]: e.target.value,
     });
   };
-   useEffect(() => {
-      document.body.style.overflow = showModal ? "hidden" : "auto";
-    }, [showModal]);
+  useEffect(() => {
+    document.body.style.overflow = showModal ? "hidden" : "auto";
+  }, [showModal]);
   const handleSubmit = (e: any) => {
+    if (formData.website) {
+  return; // bot detected → silently ignore
+}
+if (!captchaValue) {
+  setError("Please verify you are not a robot");
+  return;
+}
     if (isSending) return;
     e.preventDefault();
     setError("");
@@ -60,10 +71,10 @@ export default function Nurayn() {
 
     emailjs
       .send(
-        "service_fuelc1b",
-        "template_3tubcil",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formData,
-        "J07rtf7aeSrZPqb8o",
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then(() => {
         setSuccess(true);
@@ -74,6 +85,7 @@ export default function Nurayn() {
           phone: "",
           company: "",
           message: "",
+            website:""
         });
       })
       .catch(() => {
@@ -753,7 +765,14 @@ export default function Nurayn() {
               >
                 Schedule a Demo
               </button>
-              <button className="rounded-md border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-900">
+              <button
+                onClick={() => {
+                  setShowModal(true);
+                  setSuccess(false); // reset
+                  setError("");
+                }}
+                className="rounded-md border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-900"
+              >
                 Contact Sales
               </button>
             </div>
@@ -775,19 +794,29 @@ export default function Nurayn() {
             </div>
             {success ? (
               <div className="text-center space-y-4">
-                <p>Request sent successfully! We will reach out to you within 24 hours.</p>
-              <button
-  onClick={() => {
-    setShowModal(false);
-    setSuccess(false);
-  }}
-  className="w-full rounded-md bg-slate-950 py-2 text-white font-semibold transition hover:scale-[1.02]"
->
-  Close
-</button>
+                <p>
+                  Request sent successfully! We will reach out to you within 24
+                  hours.
+                </p>
+                <button
+                  onClick={() => {
+                    setShowModal(false);
+                    setSuccess(false);
+                  }}
+                  className="w-full rounded-md bg-slate-950 py-2 text-white font-semibold transition hover:scale-[1.02]"
+                >
+                  Close
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+  type="text"
+  name="website"
+  value={formData.website}
+  onChange={handleChange}
+  style={{ display: "none" }}
+/>
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -827,6 +856,10 @@ export default function Nurayn() {
                   onChange={handleChange}
                   className="w-full rounded-md border p-2"
                 />
+                <ReCAPTCHA
+  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+  onChange={(value) => setCaptchaValue(value)}
+/>
                 {error && <div className="text-red-500 text-sm">{error}</div>}
 
                 <button
