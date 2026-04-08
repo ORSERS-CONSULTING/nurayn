@@ -7,7 +7,7 @@ export default function Nurayn() {
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
-const [captchaValue, setCaptchaValue] = useState(null);
+const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -858,8 +858,7 @@ if (!captchaValue) {
                 />
                 <ReCAPTCHA
   sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-  onChange={(value) => setCaptchaValue(value)}
-/>
+onChange={(value: string | null) => setCaptchaValue(value)}/>
                 {error && <div className="text-red-500 text-sm">{error}</div>}
 
                 <button
