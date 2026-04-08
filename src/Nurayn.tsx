@@ -92,7 +92,7 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
         });
       })
       .catch(() => {
-        setError("Failed to send request");
+        setError("Something went wrong. Please try again.");
       })
       .finally(() => {
         setIsSending(false);
@@ -198,12 +198,10 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                 N
               </div>
               <div>
-                <div className="text-sm font-semibold tracking-[0.24em] text-slate-900">
+                <div className="text-md font-semibold tracking-[0.16em] text-slate-900">
                   NURAYN
                 </div>
-                <div className="text-xs text-slate-500">
-                  HR • Attendance • Payroll • WPS
-                </div>
+                
               </div>
             </div>
 
@@ -227,6 +225,7 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                 setShowModal(true);
                 setSuccess(false); // reset
                 setError("");
+
               }}
               className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
             >
@@ -245,7 +244,7 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
               <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
                 NURAYN connects HR, payroll, finance, and operations into one
-                unified platform — eliminating manual work, enabling real-time
+                unified platform, eliminating manual work, enabling real-time
                 posting, and ensuring full traceability across the business.
               </p>
 
@@ -307,9 +306,9 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                       <div className="rounded-md border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
                         Live Data
                       </div>
-                      <div className="rounded-md border border-cyan-200 bg-cyan-50 px-3 py-2 text-xs font-semibold text-cyan-800">
+                      {/* <div className="rounded-md border border-cyan-200 bg-cyan-50 px-3 py-2 text-xs font-semibold text-cyan-800">
                         Total Salaries: AED 2,004,560
-                      </div>
+                      </div> */}
                     </div>
                   </div>
 
@@ -380,9 +379,9 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                               Pending Actions
                             </div>
                           </div>
-                          <div className="rounded-lg bg-amber-50 px-3 py-2 text-sm font-medium text-amber-700">
-                            24 open
-                          </div>
+                      <div className="rounded-lg bg-amber-50 px-3 py-2 text-sm font-medium text-amber-700 whitespace-nowrap">
+  24 open
+</div>
                         </div>
 
                         <div className="mt-5 space-y-3">
@@ -429,9 +428,7 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                               Today’s Workforce Activity
                             </div>
                           </div>
-                          <div className="text-sm font-medium text-cyan-700">
-                            Real-time
-                          </div>
+                         
                         </div>
 
                         <div className="mt-6 grid grid-cols-3 gap-3">
@@ -560,9 +557,9 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
             </p>
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm text-slate-600 shadow-sm">
+          {/* <div className="rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm text-slate-600 shadow-sm">
             Modern SaaS feel • Premium corporate credibility
-          </div>
+          </div> */}
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -669,9 +666,9 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                       From Salary to Finance Posting
                     </div>
                   </div>
-                  <div className="rounded-md border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-800">
+                  {/* <div className="rounded-md border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-800">
                     Live
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="mt-4 space-y-2 text-sm text-slate-600">
@@ -805,6 +802,7 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                   onClick={() => {
                     setShowModal(false);
                     setSuccess(false);
+                    setCaptchaValue(null);
                   }}
                   className="w-full rounded-md bg-slate-950 py-2 text-white font-semibold transition hover:scale-[1.02]"
                 >
