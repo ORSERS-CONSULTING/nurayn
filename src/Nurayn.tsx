@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
+// OR if not using alias:
+import logo from "./assets/NURAYN.png";
 
 export default function Nurayn() {
   const [success, setSuccess] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
-const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     company: "",
     message: "",
-    website:""
+    website: "",
   });
   const validate = () => {
     if (!formData.name || !formData.email) {
@@ -50,17 +52,16 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
     document.body.style.overflow = showModal ? "hidden" : "auto";
   }, [showModal]);
   const handleSubmit = (e: any) => {
-  
- e.preventDefault();
+    e.preventDefault();
 
-  if (isSending) return;
+    if (isSending) return;
 
-  if (formData.website) return; // honeypot
+    if (formData.website) return; // honeypot
 
-  if (!captchaValue) {
-    setError("Please verify you are not a robot");
-    return;
-  }
+    if (!captchaValue) {
+      setError("Please verify you are not a robot");
+      return;
+    }
 
     setError("");
 
@@ -88,7 +89,7 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
           phone: "",
           company: "",
           message: "",
-            website:""
+          website: "",
         });
       })
       .catch(() => {
@@ -194,14 +195,17 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
         <div className="relative mx-auto max-w-7xl px-6 py-8 lg:px-10">
           <header className="flex items-center justify-between rounded-md border border-white/70 bg-white/85 px-5 py-3 shadow-[0_10px_35px_rgba(15,23,42,0.06)] backdrop-blur-xl">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 text-base font-bold text-white shadow-lg shadow-cyan-500/25">
-                N
+              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-white shadow-lg shadow-cyan-500/10 overflow-hidden">
+                <img
+                  src={logo}
+                  alt="NURAYN logo"
+                  className="h-full w-full object-contain"
+                />
               </div>
               <div>
                 <div className="text-md font-semibold tracking-[0.16em] text-slate-900">
                   NURAYN
                 </div>
-                
               </div>
             </div>
 
@@ -225,7 +229,6 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                 setShowModal(true);
                 setSuccess(false); // reset
                 setError("");
-
               }}
               className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
             >
@@ -379,9 +382,9 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                               Pending Actions
                             </div>
                           </div>
-                      <div className="rounded-lg bg-amber-50 px-3 py-2 text-sm font-medium text-amber-700 whitespace-nowrap">
-  24 open
-</div>
+                          <div className="rounded-lg bg-amber-50 px-3 py-2 text-sm font-medium text-amber-700 whitespace-nowrap">
+                            24 open
+                          </div>
                         </div>
 
                         <div className="mt-5 space-y-3">
@@ -428,7 +431,6 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                               Today’s Workforce Activity
                             </div>
                           </div>
-                         
                         </div>
 
                         <div className="mt-6 grid grid-cols-3 gap-3">
@@ -812,12 +814,12 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <input
-  type="text"
-  name="website"
-  value={formData.website}
-  onChange={handleChange}
-  style={{ display: "none" }}
-/>
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  style={{ display: "none" }}
+                />
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -858,8 +860,9 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
                   className="w-full rounded-md border p-2"
                 />
                 <ReCAPTCHA
-  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-onChange={(value: string | null) => setCaptchaValue(value)}/>
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  onChange={(value: string | null) => setCaptchaValue(value)}
+                />
                 {error && <div className="text-red-500 text-sm">{error}</div>}
 
                 <button
