@@ -50,15 +50,18 @@ const [captchaValue, setCaptchaValue] = useState<string | null>(null);
     document.body.style.overflow = showModal ? "hidden" : "auto";
   }, [showModal]);
   const handleSubmit = (e: any) => {
-    if (formData.website) {
-  return; // bot detected → silently ignore
-}
-if (!captchaValue) {
-  setError("Please verify you are not a robot");
-  return;
-}
-    if (isSending) return;
-    e.preventDefault();
+  
+ e.preventDefault();
+
+  if (isSending) return;
+
+  if (formData.website) return; // honeypot
+
+  if (!captchaValue) {
+    setError("Please verify you are not a robot");
+    return;
+  }
+
     setError("");
 
     const validationError = validate();
