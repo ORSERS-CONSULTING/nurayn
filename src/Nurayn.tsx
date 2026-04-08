@@ -74,7 +74,7 @@ if (!captchaValue) {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formData,
-        import.meta.env.EMAILJS_PUBLIC_KEY,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then(() => {
         setSuccess(true);
@@ -857,7 +857,7 @@ if (!captchaValue) {
                   className="w-full rounded-md border p-2"
                 />
                 <ReCAPTCHA
-  sitekey={import.meta.env.RECAPTCHA_SITE_KEY}
+  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
 onChange={(value: string | null) => setCaptchaValue(value)}/>
                 {error && <div className="text-red-500 text-sm">{error}</div>}
 
