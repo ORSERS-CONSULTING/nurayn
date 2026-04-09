@@ -204,7 +204,7 @@ export default function Nurayn() {
               </div>
             )}
             <div className="flex items-center gap-3">
-              <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-white shadow-lg shadow-cyan-500/10 overflow-hidden">
+              <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-white shadow-lg shadow-cyan-500/10 overflow-hidden">
                 <img
                   src={logo}
                   alt="NURAYN logo"
@@ -212,7 +212,7 @@ export default function Nurayn() {
                 />
               </div>
               <div>
-                <div className="text-xl font-semibold tracking-[0.10em] text-slate-900">
+                <div className="text-2xl font-semibold tracking-[0.10em] text-slate-900">
                   NURAYN
                 </div>
               </div>
@@ -253,19 +253,19 @@ export default function Nurayn() {
             </button>
           </header>
 
-          <div className="grid items-start gap-16 py-12 grid-cols-1 lg:grid-cols-2 lg:py-16">
+          <div className="grid items-start gap-8 py-16 grid-cols-1 lg:grid-cols-[0.78fr_1.22fr]  lg:py-20">
             <div>
-              <h1 className="max-w-3xl break-words text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-semibold leading-[1.05] tracking-tight text-slate-950">
+              <h1 className="max-w-2xl break-words text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-semibold leading-[1.1] tracking-tight text-slate-950">
                 HR, Payroll & WPS platform
                 <span className="block bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-700 bg-clip-text text-transparent">
-                  seamlessly integrated with finance &amp; operations.
+                  integrated with finance &amp; operations.
                 </span>
               </h1>
 
               <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
-                NURAYN connects HR, payroll, finance, and operations into one
-                unified platform, eliminating manual work, enabling real-time
-                posting, and ensuring full traceability across the business.
+                NURAYN connects HR, payroll, and finance into one unified
+                platform; eliminating manual work and enabling real-time
+                financial impact.
               </p>
 
               {/* <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -283,185 +283,215 @@ export default function Nurayn() {
                   Explore Platform
                 </button>
               </div> */}
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                {valuePoints.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-md bg-gradient-to-r from-cyan-600 to-blue-700 px-4 py-2 text-sm text-white shadow-sm"
-                  >
-                    {item}
-                  </div>
-                ))}
+              <div className="mt-8">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Proven outcomes
+                </div>
+                <div className=" flex flex-wrap gap-3">
+                  {valuePoints.map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-md bg-gradient-to-r from-cyan-600 to-blue-700 px-4 py-2 text-sm text-white shadow-sm"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
               </div>
-
-              <div className="mt-10 flex flex-wrap gap-3">
-                {modules.map((module) => (
-                  <div
-                    key={module}
-                    className="rounded-md border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm"
-                  >
-                    {module}
-                  </div>
-                ))}
+              <div className="mt-8">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Core modules
+                </div>
+                <div className=" flex flex-wrap gap-3">
+                  {modules.map((module) => (
+                    <div
+                      key={module}
+                      className="rounded-md border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm"
+                    >
+                      {module}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="relative self-start">
+            <div className="relative self-start w-full">
               <div className="absolute -inset-6 rounded-lg bg-gradient-to-br from-cyan-200/40 via-white to-blue-200/40 blur-2xl" />
 
-              <div className="relative rounded-2xl border border-white/80 bg-white/90 p-4 shadow-[0_30px_80px_rgba(15,23,42,0.10)] backdrop-blur-xl">
+              <div className="relative w-full rounded-2xl border border-white/80 bg-white/90 p-4 shadow-[0_24px_60px_rgba(15,23,42,0.10)] backdrop-blur-xl">
                 <div className="rounded-xl border border-slate-100 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-5">
-                  <div className="mb-5 flex items-start justify-between gap-4">
-                    <div>
+                  {/* HEADER */}
+                  <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="min-w-0">
                       <div className="text-sm text-slate-500">
                         NURAYN Platform
                       </div>
-                      <div className="text-lg font-semibold text-slate-950">
+
+                      <div className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-950 leading-tight">
                         Executive Workforce Overview
                       </div>
                     </div>
 
-                    <div className="flex flex-col items-end gap-2">
+                    <div className="flex flex-wrap items-start gap-2 sm:flex-col sm:items-end">
                       <div className="rounded-md border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
                         Live Data
                       </div>
-                      {/* <div className="rounded-md border border-cyan-200 bg-cyan-50 px-3 py-2 text-xs font-semibold text-cyan-800">
+
+                      <div className="rounded-md border border-cyan-200 bg-cyan-50 px-3 py-2 text-xs font-semibold text-cyan-800">
                         Total Salaries: AED 2,004,560
-                      </div> */}
+                      </div>
                     </div>
                   </div>
 
-   <div className="grid gap-4">
-  {/* TOP CARDS */}
-  <div className="grid grid-cols-1 gap-4 min-[540px]:grid-cols-3">
-    {/* Total Salaries */}
-    <div className="min-w-0 rounded-xl border border-cyan-200 bg-cyan-50 p-4 shadow-sm">
-      <div className="text-xs sm:text-sm text-slate-500">
-        Total Salaries
-      </div>
+                  {/* TOP SECTION */}
+                  <div className="grid gap-4">
+                    <div className="grid gap-4 md:grid-cols-2">
+                      {/* EMPLOYEE CARD */}
+                      <div className="rounded-xl bg-slate-900/90 p-5 text-white shadow-md">
+                        <div className="text-sm text-slate-300">
+                          Total Employees
+                        </div>
 
-      <div className="mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-slate-950 leading-tight">
-        AED 2,004,560
-      </div>
+                        <div className="mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+                          1,248
+                        </div>
 
-      <div className="mt-2 text-[11px] sm:text-xs text-slate-500">
-        Processed this month
-      </div>
-    </div>
+                        <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                          <div>
+                            <div className="text-xs uppercase tracking-[0.18em] text-slate-500">
+                              Growth
+                            </div>
+                            <div className="mt-1 text-sm text-emerald-300">
+                              +8.4% this quarter
+                            </div>
+                          </div>
 
-    {/* Total Employees */}
-    <div className="min-w-0 rounded-xl bg-slate-950 p-4 text-white shadow-lg xl:p-6">
-      <div className="text-xs sm:text-sm text-slate-400">
-        Total Employees
-      </div>
+                          <div className="rounded-lg bg-white/10 px-3 py-2 text-xs sm:text-sm text-slate-200 text-center">
+                            4 active branches
+                          </div>
+                        </div>
+                      </div>
 
-      <div className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
-        1,248
-      </div>
+                      {/* PAYROLL */}
+                      <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <div className="text-sm text-slate-600">
+                          Payroll Status
+                        </div>
 
-      <div className="mt-4 flex flex-col gap-2 xl:mt-6 xl:flex-row xl:items-center xl:justify-between">
-        <div>
-          <div className="text-[10px] uppercase tracking-[0.18em] text-slate-500">
-            Growth
-          </div>
-          <div className="mt-1 text-xs sm:text-sm text-emerald-300">
-            +8.4% this quarter
-          </div>
-        </div>
+                        <div className="mt-3 text-base sm:text-lg md:text-xl font-semibold text-slate-950 leading-tight">
+                          Ready for Processing
+                        </div>
 
-      {/* <div className="max-w-full rounded-md bg-white/10 px-2 py-2 text-[10px] sm:text-xs xl:text-sm text-slate-200 text-center leading-tight">
-  <span className="block">4 active</span>
-  <span className="block">branches</span>
-</div> */}
-      </div>
-    </div>
+                        <div className="mt-4 h-2 rounded-md bg-slate-200">
+                          <div className="h-2 w-[82%] rounded-md bg-gradient-to-r from-cyan-500 to-blue-600" />
+                        </div>
 
-    {/* Payroll */}
-    <div className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm xl:p-5">
-      <div className="text-xs sm:text-sm text-slate-500">
-        Payroll Status
-      </div>
+                        <div className="mt-3 flex justify-between text-xs sm:text-sm">
+                          <span className="text-slate-500">
+                            Validation progress
+                          </span>
+                          <span className="font-medium text-slate-900">
+                            82%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
 
-      <div className="mt-2 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-slate-950 leading-tight">
-        Ready for Processing
-      </div>
+                    {/* BOTTOM SECTION */}
+                    <div className="grid gap-4 md:grid-cols-2">
+                      {/* APPROVALS */}
+                      <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                          <div>
+                            <div className="text-sm text-slate-500">
+                              Approvals
+                            </div>
+                            <div className="text-lg sm:text-xl font-semibold text-slate-950">
+                              Pending Actions
+                            </div>
+                          </div>
 
-      <div className="mt-4 h-2 rounded-md bg-slate-200 xl:mt-6">
-        <div className="h-2 w-[82%] rounded-md bg-gradient-to-r from-cyan-500 to-blue-600" />
-      </div>
+                          <div className="rounded-lg bg-amber-50 px-3 py-2 text-xs sm:text-sm font-medium text-amber-700">
+                            24 open
+                          </div>
+                        </div>
 
-      <div className="mt-3 flex justify-between text-xs sm:text-sm">
-        <span className="text-slate-500">Validation</span>
-        <span className="font-medium text-slate-900">82%</span>
-      </div>
-    </div>
-  </div>
+                        <div className="mt-5 space-y-3">
+                          {[
+                            { label: "Leave requests", value: "09" },
+                            { label: "Payroll exceptions", value: "06" },
+                            { label: "HR approvals", value: "09" },
+                          ].map((item) => (
+                            <div
+                              key={item.label}
+                              className="rounded-lg bg-slate-50 p-4"
+                            >
+                              <div className="flex justify-between text-sm">
+                                <span className="text-slate-500">
+                                  {item.label}
+                                </span>
+                                <span className="font-semibold text-slate-900">
+                                  {item.value}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
 
-  {/* BOTTOM */}
-  <div className="grid gap-4 md:grid-cols-2">
-    {/* Approvals */}
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        <div>
-          <div className="text-sm text-slate-500">Approvals</div>
-          <div className="text-lg sm:text-xl font-semibold text-slate-950">
-            Pending Actions
-          </div>
-        </div>
+                      {/* ATTENDANCE */}
+                      <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <div>
+                          <div className="text-sm text-slate-500">
+                            Attendance Snapshot
+                          </div>
 
-        <div className="rounded-lg bg-amber-50 px-3 py-2 text-xs sm:text-sm font-medium text-amber-700">
-          24 open
-        </div>
-      </div>
+                          <div className="text-lg sm:text-xl font-semibold text-slate-950">
+                            Today’s Workforce Activity
+                          </div>
+                        </div>
 
-      <div className="mt-5 space-y-3">
-        {[
-          { label: "Leave requests", value: "09" },
-          { label: "Payroll exceptions", value: "06" },
-          { label: "HR approvals", value: "09" },
-        ].map((item) => (
-          <div key={item.label} className="rounded-lg bg-slate-50 p-4">
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-slate-500">{item.label}</span>
-              <span className="font-semibold text-slate-900">
-                {item.value}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+                        <div className="mt-4 grid grid-cols-3 gap-3">
+                          {[
+                            { label: "Present", value: "1,132" },
+                            { label: "On Leave", value: "57" },
+                            { label: "Late", value: "19" },
+                          ].map((item) => (
+                            <div
+                              key={item.label}
+                              className="rounded-lg bg-slate-50 p-3 text-center"
+                            >
+                              <div className="text-xs sm:text-sm text-slate-500">
+                                {item.label}
+                              </div>
 
-    {/* Attendance */}
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div>
-        <div className="text-sm text-slate-500">Attendance Snapshot</div>
-        <div className="text-lg sm:text-xl font-semibold text-slate-950">
-          Today’s Workforce Activity
-        </div>
-      </div>
-
-      <div className="mt-6 grid grid-cols-3 gap-3">
-        {[
-          { label: "Present", value: "1,131" },
-          { label: "On Leave", value: "57" },
-          { label: "Late", value: "19" },
-        ].map((item) => (
-          <div key={item.label} className="rounded-lg bg-slate-50 p-3 text-center">
-            <div className="text-[11px] sm:text-sm text-slate-500">
-              {item.label}
-            </div>
-
-            <div className="mt-2 text-lg sm:text-xl md:text-2xl font-semibold text-slate-950 leading-tight">
-              {item.value}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
+                              <div className="mt-2 text-lg sm:text-xl md:text-2xl font-semibold text-slate-950">
+                                {item.value}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-4 rounded-xl bg-[linear-gradient(135deg,#ecfeff_0%,#eff6ff_100%)] p-4">
+                          <div className="flex items-end justify-between gap-3">
+                            {[38, 58, 48, 73, 67, 84, 76].map((h, i) => (
+                              <div
+                                key={i}
+                                className="flex flex-1 flex-col items-center gap-2"
+                              >
+                                <div
+                                  className="w-full max-w-[32px] rounded-md bg-gradient-to-t from-cyan-500 to-blue-600"
+                                  style={{ height: `${h}px` }}
+                                />
+                                <span className="text-xs text-slate-500">
+                                  {["M", "T", "W", "T", "F", "S", "S"][i]}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -478,46 +508,43 @@ export default function Nurayn() {
             <h2 className="text-3xl font-semibold tracking-tight text-slate-950 md:text-5xl">
               Built to extend NetSuite and Oracle Fusion Finance.
             </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              NURAYN can be positioned as the dedicated HR, Payroll, Attendance,
-              and WPS layer that integrates with leading finance platforms. This
-              makes it ideal for organizations using NetSuite or Oracle Fusion
-              Finance but needing a stronger people operations capability.
+            <p className="mt-5  text-lg leading-7 text-slate-600">
+              NURAYN acts as the HR, Payroll, and WPS layer on top of your
+              existing finance systems.
             </p>
 
-            <div className="mt-8 rounded-xl border border-cyan-200 bg-cyan-50 px-5 py-4 text-sm font-medium text-cyan-800">
-              Keep your finance backbone. Add a stronger HR and payroll layer on
-              top.
+            <div className="mt-8 rounded-xl border border-cyan-200 bg-cyan-50 px-4 py-3 text-sm font-medium text-cyan-800">
+              Keep your finance. Upgrade your people operations.
             </div>
           </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="space-y-4">
             {erpIntegrations.map((item) => (
               <div
                 key={item.name}
-                className="rounded-xl border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)]"
+                className="rounded-lg border border-slate-200 bg-white p-4 sm:p-5 shadow-sm transition-all hover:shadow-md"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <div className="text-sm font-semibold text-cyan-700">
-                      {item.name}
-                    </div>
-                    <h3 className="mt-2 text-xl font-semibold text-slate-950">
-                      {item.title}
-                    </h3>
+                {/* HEADER */}
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="text-xs sm:text-sm font-semibold text-cyan-700">
+                    {item.name}
                   </div>
-                  <div className="rounded-md bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+
+                  <div className="text-[10px] sm:text-xs text-slate-500 sm:whitespace-nowrap">
                     {item.tag}
                   </div>
                 </div>
 
-                <div className="mt-5 space-y-3">
+                {/* TITLE */}
+                <div className="mt-2 text-sm sm:text-base md:text-lg font-semibold text-slate-900 leading-tight">
+                  {item.title}
+                </div>
+
+                {/* POINTS */}
+                <div className="mt-3 sm:mt-4 space-y-2 text-xs sm:text-sm text-slate-600">
                   {item.points.map((point) => (
-                    <div
-                      key={point}
-                      className="rounded-lg bg-slate-50 p-4 text-sm leading-6 text-slate-700"
-                    >
-                      {point}
+                    <div key={point} className="flex items-start gap-2">
+                      <span className="mt-[2px] text-cyan-500">•</span>
+                      <span className="leading-relaxed">{point}</span>
                     </div>
                   ))}
                 </div>
@@ -672,7 +699,7 @@ export default function Nurayn() {
                   </div>
                 </div>
 
-                <div className="mt-4 rounded-lg bg-[#f8fbff] p-3 text-sm text-slate-700">
+                <div className="mt-4 rounded-lg bg-[#f8fbff] p-2 text-sm text-slate-700">
                   0 manual entries. Real-time posting to finance. Fully
                   audit-ready end-to-end.
                 </div>
